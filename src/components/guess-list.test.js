@@ -7,4 +7,9 @@ describe('<GuessList />', () => {
 	it('Renders without crashing', () => {
 		shallow(<GuessList />);
 	})
+
+	it('Has the guessBox class', () => {
+		const wrapper = shallow(<GuessList />);
+		expect(wrapper.hasClass('guessBox')).toEqual(true);
+	})
 })
