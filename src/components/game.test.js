@@ -15,4 +15,12 @@ describe('<Game />', () => {
 		wrapper.find('form').simulate('submit');
 		expect(wrapper.state('guesses')).toEqual([testGuess])
 	})
+
+	it('Gives correct message when guess is correct', ()=>{
+		const wrapper = mount(<Game />);
+		const answer = wrapper.state('correctAnswer');
+		wrapper.find('input').node.value = answer;
+		wrapper.find('form').simulate('submit');
+		expect(wrapper.find('#feedback').text()).toEqual('You got it!');
+	})
 })
